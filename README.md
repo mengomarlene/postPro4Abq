@@ -16,7 +16,9 @@ in command line run "abaqus python myPostProFile.py"
 
 list of scripts and classes
 ===========================
+
 valueExtractorClass.py: contains the main classes for generic value extractors and contact value extractors.
+    
     """Class ValueExtractor - extract odb values on a set
     ValueExtractor(odb,set)#set can be a string or a set object
     Methods:
@@ -24,7 +26,6 @@ valueExtractorClass.py: contains the main classes for generic value extractors a
         setComponent(componentLabel) - the field component, no default
         setInvariant(invariant) - the field invariant, no default
         setCoordSystem(sysC) - a coordinate system (sysC is a datum) in which the field is extracted, default is cartesian
-
         getEvolution_Nodal()
         getEvolution_ElementNodal()
         getEvolution_ElementIP()
@@ -32,7 +33,6 @@ valueExtractorClass.py: contains the main classes for generic value extractors a
         getFinalValue_ElementNodal()
         getFinalValue_ElementIP()
     """
-
     """Class ContactValueExtractor - extract odb contact values on a contact pair
     ContactValueExtractor(odb,masterSurf,slaveSurf)#masterSurf,slaveSurf can be strings or a surface objects
     Methods:
@@ -41,12 +41,13 @@ valueExtractorClass.py: contains the main classes for generic value extractors a
         setInvariant(invariant) - abaqus invariant (default None)
         setCoordSystem(sysC) - sysC is a datum coordinate system (default None)
         setStepName(name) - if None (default) then uses the last step is the last one
-
         getEvolution()
         getFinalValue()
     """
 
 extractor.py: defines specific extractors using the ValueExtractor class
+
 contactExtractors.py: defines specific extractors using the ContactValueExtractor class
+
 odbTools.py: generic tools to open odb and write outputs
 
