@@ -1,4 +1,4 @@
-# readingAbaqusOdb
+# postPro4Abq
 Scripts to read and process an odb file.
 ./tools contains the python scripts and classes
 ./tests shows an example with a generic function (in module FSUPostPro) being called from a python script (FSU2615IsoPostpro.py)
