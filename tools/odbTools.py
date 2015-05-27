@@ -1,4 +1,10 @@
-
+def createNodeSetFromEleSet(nodeSetName,eleSet,instanceName,odbAssembly):
+    nodeList = list()
+    for ele in eleSet.elements:
+        nodeList.extend([node for node in ele.connectivity if node not in nodeList])
+    myNodes = tuple(nodeList)
+    odbAssembly.NodeSetFromNodeLabels(name = nodeSetName, nodeLabels = ((instanceName,myNodes),)) 
+#-----------------------------------------------------
 def getNodeSetFromSurface(odb,surface):
     if odb.rootAssembly.nodeSets.has_key(surface.name):newSet = odb.rootAssembly.nodeSets[surface.name]
     else:

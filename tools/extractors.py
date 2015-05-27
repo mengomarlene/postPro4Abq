@@ -81,7 +81,7 @@ def getU(odb,setName,sysC=None):
         values.setField('U')
         values.setCoordSystem(sysC)
         return values.getEvolution_Nodal()
-    else:raise Exception("getDisplacements to be used only if the set contains 1! node")
+    else:raise Exception("getU to be used only if the set contains 1! node")
 #-----------------------------------------------------
 def getU_Magnitude(odb,setName,sysC=None):
     from abaqusConstants import MAGNITUDE

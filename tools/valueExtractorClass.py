@@ -1,3 +1,5 @@
+#import odbAccess
+
 class ValueExtractor:
     """Class ValueExtractor - extract odb values on a set
     ValueExtractor(odb,set)#set can be a string or a set object
@@ -78,6 +80,7 @@ class ValueExtractor:
                 if 'INSTANCE'  in self.setName:#set name is a part set
                     iName = self.setName.split('.')[0]
                     iSetName = self.setName.split('.')[1]
+                    print assembly.instances[iName].nodeSets
                     try:
                         subset = assembly.instances[iName].nodeSets[iSetName]
                     except:
@@ -107,16 +110,9 @@ class ValueExtractor:
 
 class ContactValueExtractor:
     """Class ContactValueExtractor - extract odb contact values on a contact pair
-    ContactValueExtractor(odb,masterSurf,slaveSurf)#masterSurf,slaveSurf can be strings or a surface objects
+    ValueExtractor(odb,masterSurf,slaveSurf)#masterSurf,slaveSurf can be strings or a surface objects
     Methods:
-        setField(fieldKey) - the field to extract (default COPEN)
-        setComponent(componentLabel) - abaqus componentLabel (default None)
-        setInvariant(invariant) - abaqus invariant (default None)
-        setCoordSystem(sysC) - sysC is a datum coordinate system (default None)
-        setStepName(name) - if None (default) then uses the last step is the last one
-        
-        getEvolution()
-        getFinalValue()
+        setField(fieldKey) - the field to extract, default is COPEN
     """
     def __init__(self,odb,masterSurf,slaveSurf):
         self.odb = odb
@@ -185,8 +181,7 @@ class ContactValueExtractor:
 				slaveName = 'ASSEMBLY_'+self.slave.name
             fieldName += slaveName+'/'+masterName
             theField = frame.fieldOutputs[fieldName]
-            if self.sysC is not None:
-                theField = theField.getTransformedField(datumCsys=self.sysC)
+            if self.sysC is not None: theField = theField.getTransformedField(datumCsys=self.sysC)
             if self.componentLabel is not None:theField = theField.getScalarField(componentLabel=self.componentLabel)
             elif self.invariant is not None:theField = theField.getScalarField(invariant=self.invariant)
             value = [ptValue.data for ptValue in theField.values]
