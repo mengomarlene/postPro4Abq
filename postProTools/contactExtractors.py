@@ -1,4 +1,4 @@
-import tools.valueExtractorClass as valueExtractor
+import postProTools.valueExtractorClass as valueExtractor
 #fieldOutputs.keys = 
 # 'CNORMF   ASSEMBLY_SLAVE1/ASSEMBLY_MASTER1', 'COPEN    ASSEMBLY_SLAVE1/ASSEMBLY_MASTER1',
 # 'CPRESS   ASSEMBLY_SLAVE1/ASSEMBLY_MASTER1', 'CSHEAR1  ASSEMBLY_SLAVE1/ASSEMBLY_MASTER1', 

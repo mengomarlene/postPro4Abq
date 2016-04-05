@@ -1,5 +1,3 @@
-#import odbAccess
-
 class ValueExtractor:
     """Class ValueExtractor - extract odb values on a set
     ValueExtractor(odb,set)#set can be a string or a set object

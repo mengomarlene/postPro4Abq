@@ -1,13 +1,13 @@
 import sys,os
 thisDir = os.path.dirname(__file__)
-toolsDir = os.path.join(os.path.dirname(thisDir), 'tools')
+toolsDir = os.path.join(os.path.dirname(thisDir), 'postProTools')
 sys.path.append(os.path.dirname(thisDir))
 
 def postPro(odbName):
     print 'running postPro on ',odbName
-    import tools.odbTools as odbTools
-    import tools.extractors as ext
-    import tools.contactExtractors as cExt
+    import postProTools.odbTools as odbTools
+    import postProTools.extractors as ext
+    import postProTools.contactExtractors as cExt
     valuesToWrite = dict()
     myOdb = odbTools.openOdb(odbName)
     fileName = odbName.split('.')[0]
