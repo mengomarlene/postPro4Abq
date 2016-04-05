@@ -32,7 +32,7 @@ def openOdb(odbName):
 #-----------------------------------------------------
 def writeValuesOpti(valueList):
     import os
-    datFile = open('output.ascii', 'w')
+    datFile = open('output.dat', 'w')
     try:
         for x,y in valueList:
             datFile.write( "%f %f\n" % (x,y) )
@@ -46,7 +46,7 @@ def writeValuesOpti(valueList):
 def writeValues(listDict):
     import os
     for key in listDict.keys():
-        datFile = open(key+'.ascii', 'w')
+        datFile = open(key+'.dat', 'w')
         try:
             for value in listDict[key]:
                 try:
