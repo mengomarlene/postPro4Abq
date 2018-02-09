@@ -75,7 +75,7 @@ class ValueExtractor:
             elif self.invariant is not None:theField = theField.getScalarField(invariant=self.invariant)
             try:#setName is a string
                 assembly = self.odb.rootAssembly
-                if 'INSTANCE'  in self.setName:#set name is a part set
+                if( 'INSTANCE'  in self.setName) or ('PART'  in self.setName) :#set name is a part set
                     iName = self.setName.split('.')[0]
                     iSetName = self.setName.split('.')[1]
                     #print assembly.instances[iName].nodeSets
